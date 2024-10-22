@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="cinema_booking">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movies">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="movie" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="movie_id" type="xs:integer"/>
+                                        <xs:element name="title" type="xs:string"/>
+                                        <xs:element name="duration" type="xs:integer"/>
+                                        <xs:element name="genre" type="xs:string"/>
+                                        <xs:element name="release_date" type="xs:date"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="theaters">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="theater" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="theater_id" type="xs:integer"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="location" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="screenings">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="screening" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="screening_id" type="xs:integer"/>
+                                        <xs:element name="screening_time" type="xs:dateTime"/>
+                                        <xs:element name="movie_id" type="xs:integer"/>
+                                        <xs:element name="theater_id" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="users">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="user" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="user_id" type="xs:integer"/>
+                                        <xs:element name="username" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="reservations">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="reservation" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="reservation_id" type="xs:integer"/>
+                                        <xs:element name="user_id" type="xs:integer"/>
+                                        <xs:element name="screening_id" type="xs:integer"/>
+                                        <xs:element name="seat_id" type="xs:integer"/>
+                                        <xs:element name="reserved_at" type="xs:dateTime"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
